@@ -1,0 +1,31 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug API",
+      "request": "launch",
+      "runtimeArgs": ["run-script", "watch"],
+      "runtimeExecutable": "npm",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "pwa-node"
+    },
+    {
+      "name": "Debug Jest",
+      "type": "node",
+      "request": "launch",
+      "env": { "CI": "true" },
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/jest",
+      "args": ["--runInBand", "--forceExit", "--detectOpenHandles"],
+      "cwd": "${workspaceRoot}",
+      "protocol": "inspector",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "debug-sequelize",
+      "program": "/usr/local/bin/ts-node"
+    }
+  ]
+}
