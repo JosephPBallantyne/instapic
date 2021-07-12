@@ -12,7 +12,7 @@ class Users extends Model {
   public readonly updatedAt!: Date;
 
   public static initModel(sequelize: Sequelize) {
-    const a = Users.init(
+    return Users.init(
       {
         id: {
           type: DataTypes.INTEGER,
@@ -32,11 +32,9 @@ class Users extends Model {
       {
         sequelize,
         modelName: 'users',
-        tableName: 'users',
         deletedAt: false,
       }
     );
-    return a;
   }
 
   public static initAssocation(): void {}

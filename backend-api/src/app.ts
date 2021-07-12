@@ -1,3 +1,4 @@
+import cookieParser from 'cookie-parser';
 import express from 'express';
 import { Route } from './types/routes.type';
 import {
@@ -39,6 +40,7 @@ class App {
     this.app.use(corsMiddleware());
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
+    this.app.use(cookieParser());
   }
 
   private initializeRoutes(routes: Route[]) {

@@ -6,19 +6,23 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
-      // userId: {
-      //   type: new Sequelize.INTEGER(),
-      //   references: {
-      //     model: 'users',
-      //     key: 'id',
-      //   },
-      // },
       description: {
         type: new Sequelize.STRING(255),
       },
-      source: {
+      filename: {
         type: new Sequelize.STRING(255),
         allowNull: false,
+      },
+      uuid: {
+        type: new Sequelize.STRING(255),
+        allowNull: false,
+      },
+      userId: {
+        type: new Sequelize.INTEGER(),
+        references: {
+          model: 'users',
+          key: 'id',
+        },
       },
       createdAt: {
         type: Sequelize.DATE,

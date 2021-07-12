@@ -1,14 +1,16 @@
 import { Sequelize, Model, DataTypes } from 'sequelize';
-// import Users from './users.model';
+import Users from './users.model';
 
 class Images extends Model {
   public id!: number;
 
-  // public userId!: number;
-
   public description!: string;
 
-  public source!: string;
+  public filename!: string;
+
+  public uuid!: string;
+
+  public userId!: number;
 
   public readonly createdAt!: Date;
 
@@ -26,7 +28,11 @@ class Images extends Model {
           type: new DataTypes.STRING(255),
           allowNull: true,
         },
-        source: {
+        filename: {
+          type: new DataTypes.STRING(255),
+          allowNull: false,
+        },
+        uuid: {
           type: new DataTypes.STRING(255),
           allowNull: false,
         },
@@ -40,7 +46,7 @@ class Images extends Model {
   }
 
   public static initAssocation(): void {
-    // this.belongsTo(Users);
+    this.belongsTo(Users);
   }
 }
 

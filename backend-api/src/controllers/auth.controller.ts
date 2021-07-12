@@ -11,7 +11,6 @@ class AuthController {
   public authService = new AuthService();
 
   public signUp = async (req: Request, res: Response, next: NextFunction) => {
-    console.log(req.body, 'reqqq');
     const userData: UserData = req.body;
     try {
       const signUpUserData: User = await this.authService.signup(userData);

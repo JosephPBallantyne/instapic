@@ -7,9 +7,9 @@ let config = {
     dialect: 'postgres',
   },
   development: {
-    username: process.env.POSTGRES_USERNAME,
+    username: process.env.POSTGRES_USER,
     password: process.env.POSTGRES_PASSWORD,
-    database: process.env.POSTGRES_NAME,
+    database: process.env.POSTGRES_DATABASE,
     host: process.env.POSTGRES_HOST,
     dialect: 'postgres',
   },

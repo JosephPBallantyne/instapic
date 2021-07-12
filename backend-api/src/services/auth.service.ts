@@ -24,7 +24,6 @@ class AuthService {
   }
 
   public async signup(userData: UserData): Promise<User> {
-    console.log('modelelelel', UserModel);
     if (!userData) {
       throw new HttpException(400, 'fields missing');
     }
