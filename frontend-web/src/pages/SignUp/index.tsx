@@ -12,6 +12,24 @@ const FormSection = styled.div`
   flex-direction: row;
 `;
 
+const Container = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+`;
+
+const InsideContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Header = styled.span`
+  font-size: 30px;
+  margin-bottom: 2rem;
+`;
+
 const SignUpPage: React.FunctionComponent = () => {
   const history = useHistory();
   const {
@@ -39,45 +57,56 @@ const SignUpPage: React.FunctionComponent = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <FormSection>
-        <div>
-          <div className="form-group column">
-            <label htmlFor="username">Username</label>
-            <input
-              className="form-control"
-              id="username"
-              {...register('username', { required: 'Username required' })}
-            />
-            {errors.username && (
-              <p style={{ color: 'red', fontSize: '14px' }} className="my-2">
-                {errors.username.message}
-              </p>
-            )}
-          </div>
+    <Container>
+      <InsideContainer>
+        <Header>Sign Up</Header>{' '}
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <FormSection>
+            <div>
+              <div className="form-group column">
+                <label htmlFor="username">Username</label>
+                <input
+                  className="form-control"
+                  id="username"
+                  {...register('username', { required: 'Username required' })}
+                />
+                {errors.username && (
+                  <p
+                    style={{ color: 'red', fontSize: '14px' }}
+                    className="my-2"
+                  >
+                    {errors.username.message}
+                  </p>
+                )}
+              </div>
 
-          <div className="form-group column">
-            <label htmlFor="password">Password</label>
-            <input
-              className="form-control"
-              id="password"
-              {...register('password', { required: 'Password required' })}
-            />
-            {errors.password && (
-              <p style={{ color: 'red', fontSize: '14px' }} className="my-2">
-                {errors.password.message}
-              </p>
-            )}
-          </div>
-        </div>
-      </FormSection>
+              <div className="form-group column">
+                <label htmlFor="password">Password</label>
+                <input
+                  className="form-control"
+                  id="password"
+                  {...register('password', { required: 'Password required' })}
+                />
+                {errors.password && (
+                  <p
+                    style={{ color: 'red', fontSize: '14px' }}
+                    className="my-2"
+                  >
+                    {errors.password.message}
+                  </p>
+                )}
+              </div>
+            </div>
+          </FormSection>
 
-      <FormSection>
-        <Button type="submit" size="sm">
-          Sign Up
-        </Button>
-      </FormSection>
-    </form>
+          <FormSection>
+            <Button type="submit" size="sm">
+              Sign Up
+            </Button>
+          </FormSection>
+        </form>{' '}
+      </InsideContainer>
+    </Container>
   );
 };
 

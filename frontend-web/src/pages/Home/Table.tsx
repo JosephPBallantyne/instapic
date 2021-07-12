@@ -7,6 +7,25 @@ import {
   useSortBy,
   usePagination,
 } from 'react-table';
+import styled from 'styled-components';
+
+const Headers = styled.thead`
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: deepskyblue;
+  color: white;
+`;
+
+const Row = styled.tr`
+  cursor: pointer;
+  :hover {
+    background-color: #ddd;
+  }
+  :nth-child(even) {
+    background-color: #f2f2f2;
+  }
+`;
 
 const ImageTable: React.FC<any> = ({ data, setSelectedImageId }): any => {
   const columns = React.useMemo(
@@ -44,9 +63,9 @@ const ImageTable: React.FC<any> = ({ data, setSelectedImageId }): any => {
     );
 
   return (
-    <>
+    <div className="my-4">
       <table {...getTableProps()}>
-        <thead>
+        <Headers>
           {headerGroups.map((headerGroup: any) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column: any) => (
@@ -54,12 +73,12 @@ const ImageTable: React.FC<any> = ({ data, setSelectedImageId }): any => {
               ))}
             </tr>
           ))}
-        </thead>
+        </Headers>
         <tbody {...getTableBodyProps()}>
           {rows.map((row: any) => {
             prepareRow(row);
             return (
-              <tr
+              <Row
                 {...row.getRowProps()}
                 onClick={() => {
                   setSelectedImageId(row.original.id);
@@ -70,12 +89,12 @@ const ImageTable: React.FC<any> = ({ data, setSelectedImageId }): any => {
                     <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                   );
                 })}
-              </tr>
+              </Row>
             );
           })}
         </tbody>
       </table>
-    </>
+    </div>
   );
 };
 

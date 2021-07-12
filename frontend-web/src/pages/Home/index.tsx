@@ -9,7 +9,17 @@ import Gallery from './Gallery';
 
 const FormSection = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+`;
+
+const Container = styled.div`
+  height: 100%;
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-left: 0.4rem;
+  margin-right: 0.4rem;
 `;
 
 const HomePage: React.FunctionComponent = () => {
@@ -46,30 +56,36 @@ const HomePage: React.FunctionComponent = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <FormSection>
-        <div>
-          <div className="form-group column">
-            <label htmlFor="file">imageUpload</label>
-            <input
-              className="form-control"
-              id="file"
-              type="file"
-              accept="image/x-png,image/jpeg,image/gif"
-              {...register('file')}
-            />
-            <input id="description" {...register('description')} />
-            <Button type="submit" size="sm">
-              Upload Image
-            </Button>
-          </div>
-        </div>
-      </FormSection>
-      <Gallery selectedImageId={selectedImageId} />
-      {imageData && (
-        <Table data={imageData} setSelectedImageId={setSelectedImageId} />
-      )}
-    </form>
+    <Container>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <FormSection className="form-group">
+          <input
+            className="form-control my-2"
+            id="file"
+            type="file"
+            accept="image/x-png,image/jpeg,image/gif"
+            {...register('file')}
+          />
+          <input
+            className="form-control my-2"
+            id="description"
+            placeholder="Description..."
+            {...register('description')}
+          />
+          <label htmlFor="file" className="mb-2">
+            png, jpeg or gif
+          </label>
+
+          <Button type="submit" size="sm" className="my-2">
+            Upload Image
+          </Button>
+        </FormSection>
+        <Gallery selectedImageId={selectedImageId} />
+        {imageData && (
+          <Table data={imageData} setSelectedImageId={setSelectedImageId} />
+        )}
+      </form>
+    </Container>
   );
 };
 

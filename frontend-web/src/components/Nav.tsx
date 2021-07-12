@@ -7,21 +7,18 @@ import { ApiContext } from '../contexts/apiContextProvider';
 
 const StyledNav = styled.nav`
   z-index: 1;
-  border: solid;
-  border-width: 1px;
-  border-color: grey;
+  border-bottom: solid;
+  border-bottom-width: 1px;
+  border-color: lightgray;
 `;
 
 const Text = styled.div`
-  color: black;
+  color: darkslategray;
 `;
 
 const BlueText = styled.div`
-  color: blue;
-`;
-
-const DarkGreyText = styled.div`
-  color: darkGrey;
+  color: steelblue;
+  font-style: bold;
 `;
 
 const Nav = () => {

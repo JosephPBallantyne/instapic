@@ -13,6 +13,24 @@ const FormSection = styled.div`
   flex-direction: row;
 `;
 
+const Container = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+`;
+
+const InsideContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Header = styled.span`
+  font-size: 30px;
+  margin-bottom: 2rem;
+`;
+
 const LoginPage: React.FunctionComponent = () => {
   const {
     register,
@@ -42,57 +60,60 @@ const LoginPage: React.FunctionComponent = () => {
   );
 
   return (
-    <>
-      {auth.authenticated && <Redirect to="/" />}
-      {!auth.authenticated && (
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <FormSection>
-            <div>
-              <div className="form-group column">
-                <label htmlFor="username">Username</label>
-                <input
-                  className="form-control"
-                  id="username"
-                  {...register('username', { required: 'Username required' })}
-                />
-                {errors.username && (
-                  <p
-                    style={{ color: 'red', fontSize: '14px' }}
-                    className="my-2"
-                  >
-                    {errors.username.message}
-                  </p>
-                )}
-              </div>
+    <Container>
+      <InsideContainer>
+        <Header>Log In</Header>
+        {auth.authenticated && <Redirect to="/" />}
+        {!auth.authenticated && (
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <FormSection>
+              <div>
+                <div className="form-group column">
+                  <label htmlFor="username">Username</label>
+                  <input
+                    className="form-control"
+                    id="username"
+                    {...register('username', { required: 'Username required' })}
+                  />
+                  {errors.username && (
+                    <p
+                      style={{ color: 'red', fontSize: '14px' }}
+                      className="my-2"
+                    >
+                      {errors.username.message}
+                    </p>
+                  )}
+                </div>
 
-              <div className="form-group column">
-                <label htmlFor="password">Password</label>
-                <input
-                  className="form-control"
-                  id="password"
-                  type="password"
-                  {...register('password', { required: 'Password required' })}
-                />
-                {errors.password && (
-                  <p
-                    style={{ color: 'red', fontSize: '14px' }}
-                    className="my-2"
-                  >
-                    {errors.password.message}
-                  </p>
-                )}
+                <div className="form-group column">
+                  <label htmlFor="password">Password</label>
+                  <input
+                    className="form-control"
+                    id="password"
+                    type="password"
+                    {...register('password', { required: 'Password required' })}
+                  />
+                  {errors.password && (
+                    <p
+                      style={{ color: 'red', fontSize: '14px' }}
+                      className="my-2"
+                    >
+                      {errors.password.message}
+                    </p>
+                  )}
+                </div>
               </div>
-            </div>
-          </FormSection>
+            </FormSection>
 
-          <FormSection>
-            <Button type="submit" size="sm">
-              Login
-            </Button>
-          </FormSection>
-        </form>
-      )}
-    </>
+            <FormSection>
+              <Button type="submit" size="sm">
+                Log In
+              </Button>
+            </FormSection>
+          </form>
+        )}
+      </InsideContainer>
+    </Container>
   );
 };
 
