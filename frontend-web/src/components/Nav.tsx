@@ -59,11 +59,9 @@ const Nav = () => {
             <ul className="navbar-nav ml-auto">
               <NavDropdown
                 id="nav"
-                title={auth.username}
+                title={<span className="text-primary">{auth.username}</span>}
                 className="nav-item dropdown"
               >
-                <NavDropdown.Item href="#">Account</NavDropdown.Item>
-                <NavDropdown.Divider />
                 <NavDropdown.Item onClick={() => logout()}>
                   Sign Out
                 </NavDropdown.Item>

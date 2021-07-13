@@ -1,5 +1,5 @@
 {
-  "name": "8workout",
+  "name": "instapic",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -23,7 +23,7 @@
   "scripts": {
     "start": "REACT_APP_ENV=local PORT=8080 react-scripts start",
     "build": "react-scripts build",
-    "build:dev": "REACT_APP_ENV=development react-scripts build"
+    "deploy": "gsutil rsync -R build gs://instapic-web"
   },
   "eslintConfig": {
     "extends": [

@@ -1,4 +1,5 @@
 /* eslint-disable class-methods-use-this */
+import HttpException from '../exceptions/HttpException';
 import ImageModel from '../db/models/images.model';
 import UserModel from '../db/models/users.model';
 import { Image } from '../types/image.type';
@@ -18,6 +19,9 @@ class ImageService {
       filename,
       userId,
     });
+    if (!image) {
+      throw new HttpException(400, 'Unable to create image');
+    }
     return image.toJSON() as Image;
   }
 
@@ -25,6 +29,9 @@ class ImageService {
     const image: ImageModel = await this.imageModel.findOne({
       where: { id: imageId },
     });
+    if (!image) {
+      throw new HttpException(400, 'Unable to find image');
+    }
     return image.toJSON() as Image;
   }
 
@@ -37,6 +44,9 @@ class ImageService {
         },
       ],
     });
+    if (!results) {
+      throw new HttpException(400, 'Unable to find images');
+    }
     const images = results.map((result) => {
       const image = result.toJSON();
       return image;

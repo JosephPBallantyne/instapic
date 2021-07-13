@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect, useContext, useState, useCallback } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from 'react-bootstrap/Button';
 import { ApiContext } from '../../contexts/apiContextProvider';
@@ -25,6 +26,7 @@ const Container = styled.div`
 const HomePage: React.FunctionComponent = () => {
   const { register, handleSubmit } = useForm<any>();
   const apiService = useContext(ApiContext);
+  const history = useHistory();
 
   const [imageData, setImageData] = useState<any[]>();
   const [selectedImageId, setSelectedImageId] = useState<number>(1);
@@ -50,6 +52,7 @@ const HomePage: React.FunctionComponent = () => {
       await apiService.post('/image/upload', formData, {
         contentType: 'multipart/form-data',
       });
+      history.push('/');
     } catch (err) {
       console.log(err);
     }

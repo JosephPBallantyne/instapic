@@ -1,6 +1,5 @@
 import bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken';
-
 import HttpException from '../exceptions/HttpException';
 import { DataStoredInToken, TokenData } from '../types/auth.type';
 import { User, UserData } from '../types/users.type';
@@ -13,9 +12,13 @@ class AuthService {
     const dataStoredInToken: DataStoredInToken = { id: user.id };
     const secret: string = process.env.JWT_SECRET;
     const expiresIn: number = 60 * 60;
+    const token = jwt.sign(dataStoredInToken, secret, { expiresIn });
+    if (!token) {
+      throw new HttpException(500, 'Unable to create security token');
+    }
     return {
       expiresIn,
-      token: jwt.sign(dataStoredInToken, secret, { expiresIn }),
+      token,
     };
   }
 
@@ -30,7 +33,6 @@ class AuthService {
     const foundUser: UserModel = await this.userModel.findOne({
       where: { username: userData.username },
     });
-    console.log(foundUser);
     if (foundUser)
       throw new HttpException(
         409,

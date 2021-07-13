@@ -1,7 +1,8 @@
 import * as React from 'react';
 import ApiServiceImpl from '../services/api.service';
 
-const apiService = new ApiServiceImpl('http://localhost:3000/api');
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000/api';
+const apiService = new ApiServiceImpl(apiUrl);
 
 export const ApiContext = React.createContext({} as ApiServiceImpl);
 
