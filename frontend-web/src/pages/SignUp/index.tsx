@@ -96,6 +96,7 @@ const SignUpPage: React.FunctionComponent = () => {
                   <input
                     className="form-control"
                     id="password"
+                    type="password"
                     {...register('password', { required: 'Password required' })}
                   />
                   {errors.password && (

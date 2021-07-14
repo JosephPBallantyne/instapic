@@ -15,7 +15,8 @@ Created using PERN stack (Postgres, Express.js, React, Node.js), with AWS storag
 - Table sorting
 - Table pagination
 - Redux and React Router
-- Deployment (GCP)
+- Deployed backend to App Engine (GCP)
+- Deployed frontend as static website to Google Storage bucket (GCP)
 - Functional UI
 
 ### Future Work
@@ -27,6 +28,7 @@ Created using PERN stack (Postgres, Express.js, React, Node.js), with AWS storag
 - Table column filter
 - Pleasant UI experience
 - Remove cases of 'any' for TypeScript typing
+- Loading indicator for large files
 
 ## Deliverable
 
