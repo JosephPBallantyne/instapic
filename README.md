@@ -1,10 +1,10 @@
-Overview
+## Overview
 
 A simple image-sharing webapp, InstaPic.
 
 Created using PERN stack (Postgres, Express.js, React, Node.js), with AWS storage and deployment to GCP.
 
-Achieved
+### Achieved
 
 - User authentication
 - User sign up and login
@@ -18,7 +18,7 @@ Achieved
 - Deployment (GCP)
 - Functional UI
 
-Future Work
+### Future Work
 
 - Persist user login after refresh
 - Enhance validation and error handling
@@ -27,31 +27,29 @@ Future Work
 - Table column filter
 - Pleasant UI experience
 
-Deliverable
+## Deliverable
 
-Production URL: https://infinityworkout.dev/
 Github: https://github.com/JosephPBallantyne/instapic
 
-Source Code
+Production URL: https://infinityworkout.dev/
 
-backend-api
+### Source Code
 
-npm i
-npm run build
-npm run start (local)
+#### backend-api
 
-- .env environment variables
-  npm run deploy (prod)
+npm i  
+npm run build  
+npm run start (local), with .env environment variables  
+npm run deploy (prod), .app.dev.yaml config and environment variables
 
-- .app.dev.yaml config and environment variables
+##### Test
 
-Test
 npm run test
 
-frontend-web
+#### frontend-web
 
-npm i
-set .env file
-npm run build
-npm run start (local)
+npm i  
+set .env file  
+npm run build  
+npm run start (local)  
 npm run deploy (prod)
