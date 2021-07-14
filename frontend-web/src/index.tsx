@@ -10,7 +10,7 @@ ReactDOM.render(
     <Provider store={store}>
       <ApiContextProvider>
         <App />
-      </ApiContextProvider>{' '}
+      </ApiContextProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useContext, useCallback } from 'react';
+import React, { useContext, useCallback, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import styled from 'styled-components';
 import Button from 'react-bootstrap/Button';
@@ -40,11 +40,13 @@ const LoginPage: React.FunctionComponent = () => {
   const apiService = useContext(ApiContext);
   const auth = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
+  const [failed, setFailed] = useState(false);
 
   const onSubmit: SubmitHandler<Login> = useCallback(
     async (data: Login) => {
       const { username, password } = data;
       try {
+        setFailed(false);
         const user = await apiService.post('/auth/login', {
           username,
           password,
@@ -53,6 +55,7 @@ const LoginPage: React.FunctionComponent = () => {
           dispatch({ type: 'LOGIN', payload: { username } });
         }
       } catch (err) {
+        setFailed(true);
         console.log(err);
       }
     },
@@ -110,6 +113,11 @@ const LoginPage: React.FunctionComponent = () => {
                 Log In
               </Button>
             </FormSection>
+            {failed && (
+              <p style={{ color: 'red', fontSize: '14px' }} className="my-2">
+                Log in failed, please try again
+              </p>
+            )}
           </form>
         )}
       </InsideContainer>

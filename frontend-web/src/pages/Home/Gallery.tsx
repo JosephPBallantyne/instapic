@@ -4,10 +4,20 @@ import styled from 'styled-components';
 import { ApiContext } from '../../contexts/apiContextProvider';
 
 const Container = styled.div`
-  width: 100%;
+  max-width: 800px;
+  max-height: 600px;
   display: flex;
   justify-content: center;
-  margin-top: 4rem;
+  align-items: center;
+  padding: 4px;
+  background-color: snow;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+  overflow: hidden;
 `;
 
 const Gallery: React.FunctionComponent<{ selectedImageId: number }> = (
@@ -37,7 +47,7 @@ const Gallery: React.FunctionComponent<{ selectedImageId: number }> = (
     <Container>
       <div>
         {image && (
-          <img alt="" src={`data:${image.mimeType};base64,${image.b64}`} />
+          <Image alt="" src={`data:${image.mimeType};base64,${image.b64}`} />
         )}
       </div>
     </Container>

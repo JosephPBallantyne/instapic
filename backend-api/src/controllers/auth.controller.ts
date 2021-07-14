@@ -45,7 +45,9 @@ class AuthController {
     const { userId } = req;
     try {
       await this.authService.logout(userId);
-      res.setHeader('Set-Cookie', ['Authorization=; Path=/; Max-age=0']);
+      res.setHeader('Set-Cookie', [
+        'Authorization=; Path=/; Max-age=0; Secure; SameSite=None;',
+      ]);
       res.status(200).json({
         data: {
           success: true,

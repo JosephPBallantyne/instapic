@@ -23,7 +23,7 @@ class AuthService {
   }
 
   public static createCookie(tokenData: TokenData): string {
-    return `Authorization=${tokenData.token}; HttpOnly; Path=/; Max-Age=${tokenData.expiresIn};`;
+    return `Authorization=${tokenData.token}; HttpOnly; Path=/; Max-Age=${tokenData.expiresIn}; Secure; SameSite=None;`;
   }
 
   public async signup(userData: UserData): Promise<User> {

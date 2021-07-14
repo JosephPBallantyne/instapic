@@ -25,13 +25,19 @@ class ImageController {
       const filename = `${uuid}-${originalname}`;
       const bucket = process.env.AWS_BUCKET_NAME;
 
-      await this.imageService.create(userId, description, uuid, originalname);
+      const record = await this.imageService.create(
+        userId,
+        description,
+        uuid,
+        originalname
+      );
       await this.s3.upload(bucket, fileBuffer, mimetype, filename);
-
       await transaction.commit();
+
       res.status(200).json({
         data: {
           success: true,
+          id: record.id,
         },
         message: 'success',
       });
