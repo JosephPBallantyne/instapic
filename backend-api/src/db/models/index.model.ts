@@ -3,12 +3,13 @@ import Users from './users.model';
 import Images from './images.model';
 
 console.info('Initializing sequelize...');
+
 export const sequelize = new Sequelize(
   process.env.POSTGRES_DATABASE,
   process.env.POSTGRES_USER,
   process.env.POSTGRES_PASSWORD,
   {
-    host: process.env.POSTGRES_HOST,
+    host: process.env.POSTGRES_INSTANCE,
     dialect: 'postgres',
     logging: true,
     pool: {
@@ -17,9 +18,9 @@ export const sequelize = new Sequelize(
       idle: 10000,
       acquire: 30000,
     },
-    dialectOptions: {
-      socketPath: process.env.POSTGRES_HOST,
-    },
+    // dialectOptions: {
+    //   socketPath: process.env.POSTGRES_INSTANCE,
+    // },
   }
 );
 

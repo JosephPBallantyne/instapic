@@ -1,7 +1,7 @@
 let config = {
   local: {
-    username: 'Joe',
-    database: 'instapic',
+    username: '',
+    database: '',
     password: '',
     host: 'localhost',
     dialect: 'postgres',

@@ -26,6 +26,7 @@ Created using PERN stack (Postgres, Express.js, React, Node.js), with AWS storag
 - Frontend tests
 - Table column filter
 - Pleasant UI experience
+- Remove cases of 'any' for TypeScript typing
 
 ## Deliverable
 
@@ -34,6 +35,8 @@ Github: https://github.com/JosephPBallantyne/instapic
 Production URL: https://infinityworkout.dev/
 
 ### Source Code
+
+Clone the repository and run the following commands from inside the folder.
 
 #### backend-api
 
