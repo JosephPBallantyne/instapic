@@ -1,4 +1,4 @@
-> App was moved to Netifly/Heroku due to deployment costs
+> App was moved to Netifly/Heroku due to deployment costs  
 > Updated URL: https://condescending-jones-7811de.netlify.app/
 
 ## Overview
