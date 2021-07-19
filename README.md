@@ -37,7 +37,7 @@ Created using PERN stack (Postgres, Express.js, React, Node.js), with AWS storag
 
 Github: https://github.com/JosephPBallantyne/instapic
 
-Production URL: https://infinityworkout.dev/
+Production URL: ~~https://infinityworkout.dev/~~ https://condescending-jones-7811de.netlify.app/
 
 ### Source Code
 
